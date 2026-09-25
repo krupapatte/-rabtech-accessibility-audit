@@ -1,50 +1,49 @@
-# Architecture and Local Setup
+# Architecture & Local Setup
 
-## Boundaries
+### Project Boundaries
 
-- `client/`: browser UI, semantic markup, styling, user interactions, and API calls. It must not contain secrets or direct database credentials.
-- `server/`: HTTP routes, request validation, authorization (when added), business logic, and persistence adapters.
-- `docs/`: audit evidence, architecture decisions, setup, and handoff documentation.
-- `tests/`: automated server tests and manual/client accessibility test plans.
+**client/** - This is for UI only. HTML, CSS, JS and API calls. No secrets or DB passwords here.
 
-## Request flow (first vertical slice)
+**server/** - Handles API routes, validation and business logic. All backend work here.
 
-1. A user opens the client page.
-2. The user activates **Check API status**.
-3. The client sends `GET /api/health` to the server.
-4. The server returns a small JSON health payload.
-5. The client displays the result in a polite live region.
+**docs/** - I kept all audit screenshots, reports and architecture notes here.
 
-## Local setup
+**tests/** - Basic tests for server health and client manual checks.
 
-Requirements: Node.js 20+ and Python 3 (for the static client server).
+### How Request Works (First Slice)
 
-Terminal 1 (repository root):
-```bash
-npm run dev
-```
+1. User opens client page at localhost:5173
+2. Clicks on "Check API status" button
+3. Client calls GET /api/health from server
+4. Server replies with JSON like { status: ok }
+5. Client shows result on page
 
-Terminal 2:
-```bash
-cd client
-python -m http.server 5173
-```
+### How to Run Locally
 
-Open `http://localhost:5173`. The API runs on port 3001.
+You need Node.js 20+ and Python 3.
 
-## Future vertical slice
+I am running both client and server from one command now:
 
-For the first user-facing feature, implement one complete path end-to-end:
-- client form with explicit labels and accessible validation;
-- server route with input validation and consistent error responses;
-- service layer for business rules;
-- repository/data layer only if persistent storage is required;
-- unit tests for validation and business rules, plus keyboard/screen-reader checks.
+Root terminal:
 
-## Design decisions
+This will start:
+- API at http://localhost:3001
+- Client at http://localhost:5173
 
-- Start with native HTML and browser APIs to minimize dependencies.
-- Keep client and server independently organized within one repository.
-- Keep configuration in environment variables; never commit secrets.
-- Add a database only when the first feature requires persistent data.
-- Document API contracts and error cases as endpoints are added.
+Earlier I used 2 terminals, but now dev.js handles both, so only 1 terminal is enough.
+
+### What I Will Do Next
+
+For next feature:
+- Add form in client with proper labels and error messages
+- Add validation on server side
+- Add service layer for logic
+- Add DB only if needed
+- Write unit tests for validation
+
+### Design Choices
+
+- Used plain HTML/JS to avoid extra dependencies
+- Kept client and server separate but in same repo
+- Used .env for config, no secrets committed
+- Documented API as I added endpoints
