@@ -26,6 +26,8 @@ I am running both client and server from one command now:
 
 Root terminal:
 
+npm run dev
+
 This will start:
 - API at http://localhost:3001
 - Client at http://localhost:5173
