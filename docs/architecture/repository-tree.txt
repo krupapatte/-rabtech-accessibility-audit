@@ -1,0 +1,29 @@
+rabtech-accessibility-architecture-audit/
+├── client/
+│   ├── index.html
+│   ├── public/
+│   └── src/
+│       ├── app.js
+│       └── styles.css
+├── server/
+│   └── src/
+│       ├── middleware/
+│       ├── routes/health.js
+│       └── server.js
+├── docs/
+│   ├── audit/
+│   │   ├── accessibility-audit-template.csv
+│   │   ├── audit-report.md
+│   │   └── screenshots/   (add your evidence)
+│   └── architecture/
+│       ├── README.md
+│       └── repository-tree.txt
+├── scripts/
+│   ├── check.js
+│   └── dev.js
+├── tests/
+│   ├── client/
+│   └── server/health.test.js
+├── .gitignore
+├── package.json
+└── README.md

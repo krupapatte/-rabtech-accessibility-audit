@@ -1,0 +1,1 @@
+Place your own dated screenshots and Lighthouse reports in this folder. Use filenames such as `A-01-keyboard-focus-2026-09-25.png`. Each screenshot should show enough browser/page context to connect it to the finding in `audit-report.md`. Do not use screenshots of the task instructions as audit evidence.

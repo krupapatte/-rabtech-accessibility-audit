@@ -1,0 +1,1 @@
+Add shared request middleware here as the API grows (for example, request logging, validation, and centralized error handling). Keep middleware small and avoid placing business logic in this directory.
